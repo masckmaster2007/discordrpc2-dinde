@@ -56,18 +56,18 @@ Observer::Observer() {
     });
     thread.detach();
 
-    ecSocketConnectedListener.bind([this]() {
-        isConnectedToEC = true;
-        return ListenerResult::Propagate;
-    });
-    ecSocketDisconnectedListener.bind([this]() {
-        isConnectedToEC = false;
-        return ListenerResult::Propagate;
-    });
-    ecSocketAbnormallyDisconnectedListener.bind([this]() {
-        isConnectedToEC = false;
-        return ListenerResult::Propagate;
-    });
+    // ecSocketConnectedListener.bind([this]() {
+    //     isConnectedToEC = true;
+    //     return ListenerResult::Propagate;
+    // });
+    // ecSocketDisconnectedListener.bind([this]() {
+    //     isConnectedToEC = false;
+    //     return ListenerResult::Propagate;
+    // });
+    // ecSocketAbnormallyDisconnectedListener.bind([this]() {
+    //     isConnectedToEC = false;
+    //     return ListenerResult::Propagate;
+    // });
 }
 
 // stolen, er, borrowed from BetterInfo (https://github.com/Cvolton/betterinfo-geode/blob/master/src/utils/TimeUtils.cpp)
@@ -102,8 +102,8 @@ void Observer::updateRPC() {
             } 
             fallback.copyFrom({
                 .details = fmt::format("On the {}", splitByCapitals(
-                    geode::utils::string::replaceIP(
-                        geode::utils::string::replaceIP(nodeName, "GJ", ""), "Layer", "Screen"
+                    geode::utils::string::replace(
+                        geode::utils::string::replace(nodeName, "GJ", ""), "Layer", "Screen"
                     )
                 )),
             });
@@ -241,7 +241,7 @@ void Observer::updateRPC() {
             std::string details = fmt::format(
                 "{} by {}",
                 level->m_levelName,
-                level->m_levelType == GJLevelType::Local ? "RobTopGames" : level->m_creatorName
+                level->m_levelType == GJLevelType::Main ? "RobTopGames" : level->m_creatorName
             );
             if (level->m_levelType == GJLevelType::Editor) {
                 details = "Playtesting a created level";

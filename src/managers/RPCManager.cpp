@@ -83,7 +83,7 @@ LevelDifficulty RPCManager::getDifficultyFromLevel(GJGameLevel* level) {
     }
     #define DIFF_INT(diff) static_cast<int>(GJDifficulty::diff)
     auto diff = level->getAverageDifficulty();
-    if (level->m_levelType == GJLevelType::Local) {
+    if (level->m_levelType == GJLevelType::Main) {
         diff = static_cast<int>(level->m_difficulty);
     }
     switch (diff) {

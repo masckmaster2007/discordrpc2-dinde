@@ -1,3 +1,8 @@
+## v4.1.0
+* Update to Geode v5.0.0 and GD 2.2081
+* Remove the old DRPC API
+* Bugfixes and improvements
+
 ## v4.0.0
 * COMPLETELY rewrite DRPC to have better code and have more compatability with mods
 

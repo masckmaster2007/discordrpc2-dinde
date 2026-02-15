@@ -5,7 +5,7 @@
 
 using namespace geode::prelude;
 
-using EditorCollabListener = EventListener<DispatchFilter<>>;
+// using EditorCollabListener = EventListener<DispatchFilter<>>;
 
 class Observer {
 public:
@@ -22,9 +22,9 @@ protected:
     
     bool isConnectedToEC = false;
 
-    EditorCollabListener ecSocketConnectedListener = DispatchFilter<>("alk.editor-collab/socket-connected");
-    EditorCollabListener ecSocketDisconnectedListener = DispatchFilter<>("alk.editor-collab/socket-disconnected");
-    EditorCollabListener ecSocketAbnormallyDisconnectedListener = DispatchFilter<>("alk.editor-collab/socket-abnormally-disconnected");
+    // EditorCollabListener ecSocketConnectedListener = DispatchFilter<>("alk.editor-collab/socket-connected");
+    // EditorCollabListener ecSocketDisconnectedListener = DispatchFilter<>("alk.editor-collab/socket-disconnected");
+    // EditorCollabListener ecSocketAbnormallyDisconnectedListener = DispatchFilter<>("alk.editor-collab/socket-abnormally-disconnected");
 
     template <typename T, typename F>
     void callIf(const F&& f) const {
