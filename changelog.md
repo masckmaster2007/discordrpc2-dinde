@@ -2,6 +2,7 @@
 * Update to Geode v5.0.0 and GD 2.2081
 * Remove the old DRPC API
 * Bugfixes and improvements
+* Fix sensitive mode
 
 ## v4.0.0
 * COMPLETELY rewrite DRPC to have better code and have more compatability with mods
