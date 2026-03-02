@@ -4,7 +4,7 @@
 
 using namespace geode::log;
 
-#define APPLICATION_ID "1178492879627366472"
+#define APPLICATION_ID "1135563246565326959"
 
 void RPCManager::initRPC() {
     if (hasInitializedRPC) return;

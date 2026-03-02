@@ -17,7 +17,7 @@ $on_mod(Loaded) {
     rpcManager.initRPC();
     rpcManager.defaultState = "Browsing menus";
     rpcManager.defaultLargeImage = "gd-large";
-    rpcManager.defaultLargeImageText = fmt::format("Playing Geometry Dash on {}", getSysName());
+    rpcManager.defaultLargeImageText = fmt::format("Playing DindeGDPS on {}", getSysName());
     rpcManager.startTime = time(0);
 
     // start doing things
