@@ -16,10 +16,11 @@ public:
 
     void updateRPC();
     bool isRPCOverridden = false;
+    std::atomic<bool> m_running{true}; // ← add this
 
 protected:
     Observer();
-    
+    ~Observer();
     bool isConnectedToEC = false;
 
     // EditorCollabListener ecSocketConnectedListener = DispatchFilter<>("alk.editor-collab/socket-connected");

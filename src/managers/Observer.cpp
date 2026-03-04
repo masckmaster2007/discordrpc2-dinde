@@ -45,9 +45,13 @@ std::string splitByCapitals(const std::string& input) {
     return result;
 }
 
+Observer::~Observer() {
+    m_running = false;
+}
+
 Observer::Observer() {
     auto thread = std::thread([this]() {
-        while (true) {
+        while (m_running) {
             updateRPC();
 
             using namespace std::chrono_literals;
@@ -90,6 +94,7 @@ std::string workingTime(int value){
 void Observer::updateRPC() {
     if (isRPCOverridden) return;
     Loader::get()->queueInMainThread([this]() {
+        if(!m_running) return;
         RPCOptions options;
         RPCOptions fallback;
 

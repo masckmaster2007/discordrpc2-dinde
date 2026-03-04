@@ -8,13 +8,14 @@ using namespace geode::log;
 
 void RPCManager::initRPC() {
     if (hasInitializedRPC) return;
+    hasInitializedRPC = true;
     discord::RPCManager::get()
         .setClientID(APPLICATION_ID)
         .onReady([](discord::User const& user) {
             geode::log::info("connected to user {}#{} (user id: {})", user.username, user.discriminator, user.id);
         })
         .onDisconnected([](int errcode, std::string_view message) {
-            geode::log::error("disconnected with error code {} - message: {}", errcode, message);
+            geode::log::error("disconnected with error code {}", errcode, message);
         })
         .initialize();
 }
